@@ -36,6 +36,7 @@ class Stat_igraca(db.Entity):
     igraci = Required("Igraci")
 
 class  Djelatnici(db.Entity):
+    id = PrimaryKey(str)
     ime = Required(str)
     vrsta_djelatnika = Required(int)
 
@@ -54,7 +55,7 @@ class Inventar(db.Entity):
 class Eventi(db.Entity):
     id = PrimaryKey(str)
     datum = Required(date)
-    vrijeme = Required(datetime)
+    vrijeme = Required(str)
     opis = Optional(str, max_len = 100)
     lokacija = Required(str)
 

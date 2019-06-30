@@ -16,21 +16,53 @@ jwt = JWTManager(app)
 
 CORS(app)
 
-@app.route("/tablica")
-def tablica():
-    return render_template('tablica.html') 
+@app.route("/Eventi")
+def Eventi():
+    return render_template('Eventi.html') 
 
-@app.route("/igraci_djelatnici")
-def igraci_djelatnici():
-    return render_template('igraci_djelatnici.html') 
+@app.route("/Eventi/dodaj")
+def eventi_dodaj():
+    return render_template('Eventi_dodaj.html')  
 
-@app.route("/inventar")
+@app.route("/Vjezbe")
+def Vjezbe():
+    return render_template('Vjezbe.html') 
+
+@app.route("/Vjezbe/dodaj")
+def Vjezbe_dodaj():
+    return render_template('Vjezbe_dodaj.html')  
+
+@app.route("/Statistika")
+def Statistika():
+    return render_template('Statistika.html') 
+
+@app.route("/Eventi/dodaj")
+def Statistika_dodaj():
+    return render_template('Statistika_dodaj.html')  
+
+@app.route("/Igraci")
+def igraci():
+    return render_template('igraci.html') 
+
+@app.route("/igraci/dodaj")
+def igraci_dodaj():
+    return render_template('igraci_dodaj.html')    
+
+@app.route("/Inventar")
 def inventar():
     return render_template('inventar.html') 
 
-@app.route("/trening")
-def trening():
-    return render_template('trening.html')
+@app.route("/inventar/dodaj")
+def inventar_dodaj():
+    return render_template('inventar_dodaj.html') 
+
+@app.route("/Djelatnici")
+def djelatnici():
+    return render_template('djelatnici.html')
+
+@app.route("/djelatnici/dodaj")
+def djelatnici_dodaj():
+    return render_template('djelatnici_dodaj.html')     
 
 @app.route("/")
 def hello():
@@ -41,7 +73,7 @@ def handle_igraci():
     igraci = Igrac.listaj()
     return jsonify({"IGRAC": igraci})
 
-@app.route("/igraci", methods=["POST"])
+@app.route("/igraci/novi", methods=["POST"])
 def handle_igraci_dodaj():
     status, greske = Igrac.dodaj(request.get_json())
     if status:
@@ -56,7 +88,7 @@ def handle_statistika():
     statistika = Statistika.listaj()
     return jsonify({"statistika igraca": statistika})
 
-@app.route("/statistika", methods=["POST"])
+@app.route("/statistika/novi", methods=["POST"])
 def handle_statistika_dodaj():
     status, greske = Statistika.dodaj(request.get_json())
     if status:
@@ -72,7 +104,7 @@ def handle_djelatnici():
     djelatnici = Djelatnik.listaj()
     return jsonify({"djelatnik": djelatnici})
 
-@app.route("/djelatnici", methods=["POST"])
+@app.route("/djelatnici/novi", methods=["POST"])
 def handle_djelatnici_dodaj():
     status, greske = Djelatnik.dodaj(request.get_json())
     if status:
@@ -91,7 +123,7 @@ def handle_vjezbe():
     return jsonify({"Vjezbe": vjezbe})
     
 
-@app.route("/vjezbe", methods=["POST"])
+@app.route("/vjezbe/novi", methods=["POST"])
 def handle_vjezbe_dodaj():
     status, greske = Vjezba.dodaj(request.get_json())
     if status:
@@ -108,7 +140,7 @@ def handle_inventar():
     inventar = Inventar_.listaj()
     return jsonify({"inventar": inventar})
 
-@app.route("/inventar", methods=["POST"])
+@app.route("/inventar/novi", methods=["POST"])
 def handle_inventar_dodaj():
     status, greske = Inventar_.dodaj(request.get_json())
     if status:
@@ -123,7 +155,7 @@ def handle_eventi():
     eventi = Event.listaj()
     return jsonify({"event": eventi})
 
-@app.route("/eventi", methods=["POST"])
+@app.route("/eventi/novi", methods=["POST"])
 def handle_eventi_dodaj():
     status, greske = Event.dodaj(request.get_json())
     if status:

@@ -65,7 +65,7 @@ class Statistika:
     def listaj():
         q = select(s for s in Stat_igraca)
         data = [x.to_dict() for x in q]
-        return data,
+        return data
 
     @db_session
     def dodaj(s):
@@ -81,7 +81,7 @@ class Djelatnik:
     def listaj():
         q = select(s for s in Djelatnici)
         data = [x.to_dict() for x in q]
-        return data,
+        return data
 
     @db_session
     def dodaj(s):
@@ -98,7 +98,7 @@ class Vjezba:
     def listaj():
         q = select(s for s in Vjezbe)
         data = [x.to_dict() for x in q]
-        return data,
+        return data
 
     @db_session
     def dodaj(s):
@@ -114,7 +114,7 @@ class Inventar_:
     def listaj():
         q = select(s for s in Inventar)
         data = [x.to_dict() for x in q]
-        return data,
+        return data
 
     @db_session
     def dodaj(s):
@@ -130,7 +130,7 @@ class Event:
     def listaj():
         q = select(s for s in Eventi)
         data = [x.to_dict() for x in q]
-        return data,
+        return data
 
     @db_session
     def dodaj(s):
